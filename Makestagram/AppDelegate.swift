@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    Parse.setApplicationId("wviUKmn1OxCkD5ny6bVDWNXXXcA5vlKU0lTZSf7d", clientKey: "n426soxieGroNV4AH4AluJymgYrUNlGq2RKyH8cU")
+    
+    PFUser.logInWithUsername("test", password: "test")
+    if let currentUser = PFUser.currentUser() {
+      print("\(currentUser.username!) successfully logged in.")
+    } else {
+      print("login failed.")
+    }
+    
+    let acl = PFACL()
+    acl.setPublicReadAccess(true)
+    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
     
     return true
   }
