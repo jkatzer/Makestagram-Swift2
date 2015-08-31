@@ -50,7 +50,7 @@ class Post : PFObject, PFSubclassing {
       user = PFUser.currentUser()
       self.imageFile = imageFile
       saveInBackgroundWithBlock {
-        (success: ObjCBool, error: NSError?) -> Void in
+        (success: Bool, error: NSError?) -> Void in
         UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
       }
     }

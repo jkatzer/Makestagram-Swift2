@@ -36,8 +36,6 @@
 		627718A01B0A58E800AF5C6E /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6277189E1B0A58E800AF5C6E /* ParseLoginHelper.swift */; };
 		62A07D1E1B1E56C8001F6916 /* ConvenienceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B8E1B06BFD7000913E4 /* ConvenienceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62A07D661B1F79F2001F6916 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */; };
-		62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; };
-		62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B7E1B06BFA2000913E4 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C8C1E51B06BD6500DC3EA7 /* AppDelegate.swift */; };
 		62C8C1EB1B06BD6500DC3EA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1E91B06BD6500DC3EA7 /* Main.storyboard */; };
 		62C8C1ED1B06BD6500DC3EA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EC1B06BD6500DC3EA7 /* Images.xcassets */; };
@@ -53,41 +51,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		62551B7D1B06BFA2000913E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 69491BAE1A7C217100A13B6B;
-			remoteInfo = Bond;
-		};
-		62551B7F1B06BFA2000913E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 69491BB91A7C217100A13B6B;
-			remoteInfo = BondTests;
-		};
-		62551B811B06BFA2000913E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCA979691A83C3A100DD4A30;
-			remoteInfo = BondOSX;
-		};
-		62551B831B06BFA2000913E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DCA979731A83C3A200DD4A30;
-			remoteInfo = BondOSXTests;
-		};
-		62551B851B06BFA2000913E4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 03ACB4FE1AB555D6001B3E64;
-			remoteInfo = iOSAppForTesting;
-		};
 		62551B8D1B06BFD7000913E4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */;
@@ -116,13 +79,6 @@
 			remoteGlobalIDString = 62EAE5DB1AD82A000069D0EC;
 			remoteInfo = ConvenienceKit;
 		};
-		62A07D701B1F7FB9001F6916 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 69491BAD1A7C217100A13B6B;
-			remoteInfo = Bond;
-		};
 		62C8C1F61B06BD6500DC3EA7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 62C8C1D81B06BD6500DC3EA7 /* Project object */;
@@ -139,7 +95,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				62A07D6F1B1F7FB9001F6916 /* Bond.framework in Embed Frameworks */,
 				62A07D1E1B1E56C8001F6916 /* ConvenienceKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -157,7 +112,6 @@
 		62551B691B06BF6D000913E4 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		62551B6A1B06BF6D000913E4 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = Frameworks/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		62551B6B1B06BF6D000913E4 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = Frameworks/ParseUI.framework; sourceTree = "<group>"; };
-		62551B751B06BFA2000913E4 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = Frameworks/Bond/Bond.xcodeproj; sourceTree = "<group>"; };
 		62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ConvenienceKit.xcodeproj; path = Frameworks/ConvenienceKit/ConvenienceKit/ConvenienceKit.xcodeproj; sourceTree = "<group>"; };
 		62551B951B06C2F5000913E4 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		62551B971B06C2FD000913E4 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -212,7 +166,6 @@
 				62551B961B06C2F5000913E4 /* Social.framework in Frameworks */,
 				62551B941B06C072000913E4 /* ConvenienceKit.framework in Frameworks */,
 				62551B741B06BF6D000913E4 /* ParseUI.framework in Frameworks */,
-				62A07D6E1B1F7FB9001F6916 /* Bond.framework in Frameworks */,
 				62551B6F1B06BF6D000913E4 /* FBSDKShareKit.framework in Frameworks */,
 				62551B731B06BF6D000913E4 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				62551B711B06BF6D000913E4 /* ParseCrashReporting.framework in Frameworks */,
@@ -245,7 +198,6 @@
 				62551B971B06C2FD000913E4 /* Accounts.framework */,
 				62551B951B06C2F5000913E4 /* Social.framework */,
 				62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */,
-				62551B751B06BFA2000913E4 /* Bond.xcodeproj */,
 				62551B631B06BF6D000913E4 /* Bolts.framework */,
 				62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */,
 				62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */,
@@ -257,18 +209,6 @@
 				62551B6B1B06BF6D000913E4 /* ParseUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		62551B761B06BFA2000913E4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				62551B7E1B06BFA2000913E4 /* Bond.framework */,
-				62551B801B06BFA2000913E4 /* BondTests.xctest */,
-				62551B821B06BFA2000913E4 /* Bond.framework */,
-				62551B841B06BFA2000913E4 /* BondOSXTests.xctest */,
-				62551B861B06BFA2000913E4 /* iOSAppForTesting.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		62551B881B06BFD7000913E4 /* Products */ = {
@@ -436,7 +376,6 @@
 			);
 			dependencies = (
 				62A07D201B1E56C8001F6916 /* PBXTargetDependency */,
-				62A07D711B1F7FB9001F6916 /* PBXTargetDependency */,
 			);
 			name = Makestagram;
 			productName = Makestagram;
@@ -494,10 +433,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 62551B761B06BFA2000913E4 /* Products */;
-					ProjectRef = 62551B751B06BFA2000913E4 /* Bond.xcodeproj */;
-				},
-				{
 					ProductGroup = 62551B881B06BFD7000913E4 /* Products */;
 					ProjectRef = 62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */;
 				},
@@ -511,41 +446,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		62551B7E1B06BFA2000913E4 /* Bond.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Bond.framework;
-			remoteRef = 62551B7D1B06BFA2000913E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		62551B801B06BFA2000913E4 /* BondTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = BondTests.xctest;
-			remoteRef = 62551B7F1B06BFA2000913E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		62551B821B06BFA2000913E4 /* Bond.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Bond.framework;
-			remoteRef = 62551B811B06BFA2000913E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		62551B841B06BFA2000913E4 /* BondOSXTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = BondOSXTests.xctest;
-			remoteRef = 62551B831B06BFA2000913E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		62551B861B06BFA2000913E4 /* iOSAppForTesting.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = iOSAppForTesting.app;
-			remoteRef = 62551B851B06BFA2000913E4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		62551B8E1B06BFD7000913E4 /* ConvenienceKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -631,11 +531,6 @@
 			isa = PBXTargetDependency;
 			name = ConvenienceKit;
 			targetProxy = 62A07D1F1B1E56C8001F6916 /* PBXContainerItemProxy */;
-		};
-		62A07D711B1F7FB9001F6916 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Bond;
-			targetProxy = 62A07D701B1F7FB9001F6916 /* PBXContainerItemProxy */;
 		};
 		62C8C1F71B06BD6500DC3EA7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
