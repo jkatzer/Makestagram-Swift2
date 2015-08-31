@@ -47,6 +47,8 @@
 		8324EF2A1B8D35F90005EDC6 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8324EF291B8D35F90005EDC6 /* FriendSearchViewController.swift */; };
 		83386FF31B90E8F100BAA1DD /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83386FF21B90E8F100BAA1DD /* PostTableViewCell.swift */; };
 		83386FF51B90F93100BAA1DD /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83386FF41B90F93100BAA1DD /* ParseHelper.swift */; };
+		8398EE1E1B94E81D00D1E8E1 /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8398EE131B94E79F00D1E8E1 /* Bond.framework */; };
+		8398EE1F1B94E81D00D1E8E1 /* Bond.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8398EE131B94E79F00D1E8E1 /* Bond.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		83BD420C1B8E815D0059D543 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BD420B1B8E815C0059D543 /* PhotoTakingHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +88,48 @@
 			remoteGlobalIDString = 62C8C1DF1B06BD6500DC3EA7;
 			remoteInfo = Makestagram;
 		};
+		8398EE121B94E79F00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 69491BAE1A7C217100A13B6B;
+			remoteInfo = Bond;
+		};
+		8398EE141B94E79F00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 69491BB91A7C217100A13B6B;
+			remoteInfo = BondTests;
+		};
+		8398EE161B94E79F00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCA979691A83C3A100DD4A30;
+			remoteInfo = BondOSX;
+		};
+		8398EE181B94E79F00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCA979731A83C3A200DD4A30;
+			remoteInfo = BondOSXTests;
+		};
+		8398EE1A1B94E79F00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 03ACB4FE1AB555D6001B3E64;
+			remoteInfo = iOSAppForTesting;
+		};
+		8398EE201B94E81D00D1E8E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 69491BAD1A7C217100A13B6B;
+			remoteInfo = Bond;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -96,6 +140,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				62A07D1E1B1E56C8001F6916 /* ConvenienceKit.framework in Embed Frameworks */,
+				8398EE1F1B94E81D00D1E8E1 /* Bond.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +193,7 @@
 		8324EF291B8D35F90005EDC6 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
 		83386FF21B90E8F100BAA1DD /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		83386FF41B90F93100BAA1DD /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Bond.xcodeproj; path = "Frameworks/Bond-bond-4/Bond.xcodeproj"; sourceTree = "<group>"; };
 		83BD420B1B8E815C0059D543 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +211,7 @@
 				62551B981B06C2FD000913E4 /* Accounts.framework in Frameworks */,
 				62551B961B06C2F5000913E4 /* Social.framework in Frameworks */,
 				62551B941B06C072000913E4 /* ConvenienceKit.framework in Frameworks */,
+				8398EE1E1B94E81D00D1E8E1 /* Bond.framework in Frameworks */,
 				62551B741B06BF6D000913E4 /* ParseUI.framework in Frameworks */,
 				62551B6F1B06BF6D000913E4 /* FBSDKShareKit.framework in Frameworks */,
 				62551B731B06BF6D000913E4 /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -189,6 +236,7 @@
 		62551B621B06BF33000913E4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */,
 				62A07D651B1F79F2001F6916 /* libstdc++.6.dylib */,
 				62551BA11B06C373000913E4 /* libsqlite3.dylib */,
 				62551B9F1B06C35B000913E4 /* AudioToolbox.framework */,
@@ -352,6 +400,18 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
+		8398EE0B1B94E79F00D1E8E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8398EE131B94E79F00D1E8E1 /* Bond.framework */,
+				8398EE151B94E79F00D1E8E1 /* BondTests.xctest */,
+				8398EE171B94E79F00D1E8E1 /* Bond.framework */,
+				8398EE191B94E79F00D1E8E1 /* BondOSXTests.xctest */,
+				8398EE1B1B94E79F00D1E8E1 /* iOSAppForTesting.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		83BD42041B8E813F0059D543 /* PhotoTaking */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +436,7 @@
 			);
 			dependencies = (
 				62A07D201B1E56C8001F6916 /* PBXTargetDependency */,
+				8398EE211B94E81D00D1E8E1 /* PBXTargetDependency */,
 			);
 			name = Makestagram;
 			productName = Makestagram;
@@ -433,6 +494,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8398EE0B1B94E79F00D1E8E1 /* Products */;
+					ProjectRef = 8398EE0A1B94E79F00D1E8E1 /* Bond.xcodeproj */;
+				},
+				{
 					ProductGroup = 62551B881B06BFD7000913E4 /* Products */;
 					ProjectRef = 62551B871B06BFD7000913E4 /* ConvenienceKit.xcodeproj */;
 				},
@@ -465,6 +530,41 @@
 			fileType = wrapper.application;
 			path = ConvenienceKitApp.app;
 			remoteRef = 62551B911B06BFD7000913E4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8398EE131B94E79F00D1E8E1 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 8398EE121B94E79F00D1E8E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8398EE151B94E79F00D1E8E1 /* BondTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BondTests.xctest;
+			remoteRef = 8398EE141B94E79F00D1E8E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8398EE171B94E79F00D1E8E1 /* Bond.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Bond.framework;
+			remoteRef = 8398EE161B94E79F00D1E8E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8398EE191B94E79F00D1E8E1 /* BondOSXTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = BondOSXTests.xctest;
+			remoteRef = 8398EE181B94E79F00D1E8E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8398EE1B1B94E79F00D1E8E1 /* iOSAppForTesting.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = iOSAppForTesting.app;
+			remoteRef = 8398EE1A1B94E79F00D1E8E1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -536,6 +636,11 @@
 			isa = PBXTargetDependency;
 			target = 62C8C1DF1B06BD6500DC3EA7 /* Makestagram */;
 			targetProxy = 62C8C1F61B06BD6500DC3EA7 /* PBXContainerItemProxy */;
+		};
+		8398EE211B94E81D00D1E8E1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Bond;
+			targetProxy = 8398EE201B94E81D00D1E8E1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -648,6 +753,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -668,6 +774,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
