@@ -8,6 +8,7 @@
 
 import UIKit
 import Bond
+import Parse
 
 class PostTableViewCell: UITableViewCell {
   
@@ -19,8 +20,9 @@ class PostTableViewCell: UITableViewCell {
   @IBOutlet weak var moreButton: UIButton!
   
   @IBAction func tappedLikeButton(sender: AnyObject) {
-    likeButton.selected = !likeButton.selected
+    post?.toggleLikePost(PFUser.currentUser()!)
   }
+  
   var post: Post? {
     didSet {
       if let post = post {

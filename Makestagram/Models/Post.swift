@@ -18,6 +18,9 @@ class Post : PFObject, PFSubclassing {
   var image: Observable<UIImage?> = Observable(nil)
   var photoUploadTask: UIBackgroundTaskIdentifier?
   
+  var likes =  Observable<[PFUser]?>(nil)
+
+  
   //MARK: PFSubclassing Protocol
   static func parseClassName() -> String {
     return "Post"
@@ -31,6 +34,49 @@ class Post : PFObject, PFSubclassing {
     var onceToken: dispatch_once_t = 0;
     dispatch_once(&onceToken) {
       self.registerSubclass()
+    }
+  }
+  
+  func fetchLikes() {
+    // 1
+    if (likes.value != nil) {
+      return
+    }
+    
+      // 2
+      ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?) -> Void in
+        // 3
+        likes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
+        
+          // 4
+          self.likes.value = likes?.map { like in
+            let like = like as! PFObject
+            let fromUser = like[ParseHelper.ParseLikeFromUser] as! PFUser
+            
+            return fromUser
+        }
+      })
+  }
+  
+  func toggleLikePost(user: PFUser) {
+    if (doesUserLikePost(user)) {
+      // if image is liked, unlike it now
+      // 1
+      likes.value = likes.value?.filter { $0 != user }
+      ParseHelper.unlikePost(user, post: self)
+    } else {
+      // if this image is not liked yet, like it now
+      // 2
+      likes.value?.append(user)
+      ParseHelper.likePost(user, post: self)
+    }
+  }
+  
+  func doesUserLikePost(user: PFUser) -> Bool {
+    if let likes = likes.value {
+      return likes.contains(user)
+    } else {
+      return false
     }
   }
   
