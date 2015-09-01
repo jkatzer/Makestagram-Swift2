@@ -12,7 +12,7 @@ import Parse
 class TimelineViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-
+  
   var posts: [Post] = []
   var photoTakingHelper: PhotoTakingHelper?
   
@@ -25,17 +25,14 @@ class TimelineViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     
-      ParseHelper.timelineRequestForCurrentUser {
-        (result: [AnyObject]?, error: NSError?) -> Void in
-        self.posts = result as? [Post] ?? []
-        
-          self.tableView.reloadData()
+    ParseHelper.timelineRequestForCurrentUser { (results, error) -> Void in
+      self.posts = results as? [Post] ?? []
+      self.tableView.reloadData()
     }
   }
 }
 
-// MARK: Tab Bar Delegate
-
+// MARK: UITabBarControllerDelegate
 extension TimelineViewController: UITabBarControllerDelegate {
   
   func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
@@ -48,11 +45,9 @@ extension TimelineViewController: UITabBarControllerDelegate {
   }
   
   func takePhoto() {
-    // instantiate photo taking class, provide callback for when photo is selected
     photoTakingHelper =
       PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
         let post = Post()
-        // 1
         post.image.next(image!)
         post.uploadPost()
     }
@@ -62,22 +57,16 @@ extension TimelineViewController: UITabBarControllerDelegate {
 extension TimelineViewController: UITableViewDataSource {
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // 1
     return posts.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-    
     let post = posts[indexPath.row]
-    // 1
     post.downloadImage()
-    // 2
     cell.post = post
-    
     return cell
   }
-  
 }
 
 

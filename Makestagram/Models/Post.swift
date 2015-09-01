@@ -30,18 +30,15 @@ class Post : PFObject, PFSubclassing {
   override class func initialize() {
     var onceToken: dispatch_once_t = 0;
     dispatch_once(&onceToken) {
-      // inform Parse about this subclass
       self.registerSubclass()
     }
   }
   
   func uploadPost() {
-    
     if let image = image.value {
-      
         photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
-        () -> Void in
-        UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+          () -> Void in
+          UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
         }
       
       let imageData = UIImageJPEGRepresentation(image, 0.8)
@@ -50,25 +47,21 @@ class Post : PFObject, PFSubclassing {
       
       user = PFUser.currentUser()
       self.imageFile = imageFile
-      saveInBackgroundWithBlock {
-        (success: Bool, error: NSError?) -> Void in
+      saveInBackgroundWithBlock { (success, error) -> Void in
         UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
       }
     }
   }
   
   func downloadImage() {
-    // if image is not downloaded yet, get it
-    // 1
     if (image.value == nil) {
-      // 2
-      imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+      imageFile?.getDataInBackgroundWithBlock { (data, error) -> Void in
         if let data = data {
           let image = UIImage(data: data, scale:1.0)!
-          // 3
           self.image.next(image)
         }
       }
     }
   }
+  
 }
