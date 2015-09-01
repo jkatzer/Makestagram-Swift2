@@ -10,33 +10,21 @@ import Foundation
 import Parse
 import Bond
 
-class Post : PFObject, PFSubclassing {
+class Post : PFObject  {
   
   @NSManaged var imageFile: PFFile?
   @NSManaged var user: PFUser?
   
   var image: Observable<UIImage?> = Observable(nil)
+  var likes: Observable<[PFUser]?> = Observable(nil)
+  
   var photoUploadTask: UIBackgroundTaskIdentifier?
-  
-  var likes =  Observable<[PFUser]?>(nil)
-
-  
-  //MARK: PFSubclassing Protocol
-  static func parseClassName() -> String {
-    return "Post"
-  }
   
   override init() {
     super.init()
   }
   
-  override class func initialize() {
-    var onceToken: dispatch_once_t = 0;
-    dispatch_once(&onceToken) {
-      self.registerSubclass()
-    }
-  }
-  
+  // MARK: Liking
   func fetchLikes() {
     // 1
     if (likes.value != nil) {
@@ -44,7 +32,7 @@ class Post : PFObject, PFSubclassing {
     }
     
       // 2
-      ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?) -> Void in
+      ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?)  -> Void in
         // 3
         likes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
         
@@ -60,13 +48,9 @@ class Post : PFObject, PFSubclassing {
   
   func toggleLikePost(user: PFUser) {
     if (doesUserLikePost(user)) {
-      // if image is liked, unlike it now
-      // 1
       likes.value = likes.value?.filter { $0 != user }
       ParseHelper.unlikePost(user, post: self)
     } else {
-      // if this image is not liked yet, like it now
-      // 2
       likes.value?.append(user)
       ParseHelper.likePost(user, post: self)
     }
@@ -80,12 +64,13 @@ class Post : PFObject, PFSubclassing {
     }
   }
   
+  // MARK: Networking
   func uploadPost() {
     if let image = image.value {
-        photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
-          () -> Void in
-          UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
-        }
+      photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler {
+        () -> Void in
+        UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+      }
       
       let imageData = UIImageJPEGRepresentation(image, 0.8)
       let imageFile = PFFile(data: imageData!)
@@ -109,5 +94,18 @@ class Post : PFObject, PFSubclassing {
       }
     }
   }
+}
+
+// MARK: PFSubclassing
+extension Post: PFSubclassing {
+  static func parseClassName() -> String {
+    return "Post"
+  }
   
+  override class func initialize() {
+    var onceToken: dispatch_once_t = 0;
+    dispatch_once(&onceToken) {
+      self.registerSubclass()
+    }
+  }
 }
