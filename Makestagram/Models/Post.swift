@@ -9,8 +9,10 @@
 import Foundation
 import Parse
 import Bond
+import ConvenienceKit
 
 class Post : PFObject  {
+  static var imageCache: NSCacheSwift<String, UIImage>!
   
   @NSManaged var imageFile: PFFile?
   @NSManaged var user: PFUser?
@@ -31,19 +33,19 @@ class Post : PFObject  {
       return
     }
     
-      // 2
-      ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?)  -> Void in
-        // 3
-        likes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
+    // 2
+    ParseHelper.likesForPost(self, completionBlock: { (var likes: [AnyObject]?, error: NSError?)  -> Void in
+      // 3
+      likes = likes?.filter { like in like[ParseHelper.ParseLikeFromUser] != nil }
+      
+      // 4
+      self.likes.value = likes?.map { like in
+        let like = like as! PFObject
+        let fromUser = like[ParseHelper.ParseLikeFromUser] as! PFUser
         
-          // 4
-          self.likes.value = likes?.map { like in
-            let like = like as! PFObject
-            let fromUser = like[ParseHelper.ParseLikeFromUser] as! PFUser
-            
-            return fromUser
-        }
-      })
+        return fromUser
+      }
+    })
   }
   
   func toggleLikePost(user: PFUser) {
@@ -74,7 +76,7 @@ class Post : PFObject  {
       
       let imageData = UIImageJPEGRepresentation(image, 0.8)
       let imageFile = PFFile(data: imageData!)
-      imageFile.saveInBackgroundWithBlock(nil)
+      imageFile.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
       
       user = PFUser.currentUser()
       self.imageFile = imageFile
@@ -85,11 +87,18 @@ class Post : PFObject  {
   }
   
   func downloadImage() {
+    // 1
+    image.value = Post.imageCache[self.imageFile!.name]
+    
+    // if image is not downloaded yet, get it
     if (image.value == nil) {
-      imageFile?.getDataInBackgroundWithBlock { (data, error) -> Void in
+      
+      imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
         if let data = data {
           let image = UIImage(data: data, scale:1.0)!
-          self.image.next(image)
+          self.image.value = image
+          // 2
+          Post.imageCache[self.imageFile!.name] = image
         }
       }
     }
@@ -103,9 +112,12 @@ extension Post: PFSubclassing {
   }
   
   override class func initialize() {
-    var onceToken: dispatch_once_t = 0;
+    var onceToken : dispatch_once_t = 0;
     dispatch_once(&onceToken) {
+      // inform Parse about this subclass
       self.registerSubclass()
+      // 1
+      Post.imageCache = NSCacheSwift<String, UIImage>()
     }
   }
 }

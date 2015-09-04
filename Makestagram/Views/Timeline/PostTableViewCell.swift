@@ -24,18 +24,26 @@ class PostTableViewCell: UITableViewCell {
     
   var post: Post? {
     didSet {
+      
+      if let oldValue = oldValue where oldValue != post {
+          oldValue.image.value = nil
+      }
+      
       if let post = post {
-        post.image.bindTo(postImageView.bnd_image)
-        // 1
-        post.likes.observe { (value: [PFUser]?) -> () in
-          // 2
+        post.image
+          .bindTo(postImageView.bnd_image)
+        
+        post.likes
+          .observe { (value: [PFUser]?) -> () in
+
           if let value = value {
-            // 3
             self.likesLabel.text = self.stringFromUserList(value)
-            // 4
             self.likeButton.selected = value.contains(PFUser.currentUser()!)
-            // 5
             self.likesIconImageView.hidden = (value.count == 0)
+          } else {
+            self.likesLabel.text = ""
+            self.likeButton.selected = false
+            self.likesIconImageView.hidden = true
           }
         }
       }
