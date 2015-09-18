@@ -18,6 +18,9 @@ class PostTableViewCell: UITableViewCell {
   @IBOutlet weak var likeButton: UIButton!
   @IBOutlet weak var moreButton: UIButton!
   
+  var postDisposable: DisposableType?
+  var likeDisposable: DisposableType?
+  
   @IBAction func tappedLikeButton(sender: AnyObject) {
     post?.toggleLikePost(PFUser.currentUser()!)
   }
@@ -26,14 +29,16 @@ class PostTableViewCell: UITableViewCell {
     didSet {
       
       if let oldValue = oldValue where oldValue != post {
-          oldValue.image.value = nil
+        oldValue.image.value = nil
+        postDisposable?.dispose()
+        likeDisposable?.dispose()
       }
       
       if let post = post {
-        post.image
+        postDisposable = post.image
           .bindTo(postImageView.bnd_image)
         
-        post.likes
+        likeDisposable = post.likes
           .observe { (value: [PFUser]?) -> () in
 
           if let value = value {
