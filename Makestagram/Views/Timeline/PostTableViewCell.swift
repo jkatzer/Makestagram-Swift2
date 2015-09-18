@@ -27,11 +27,12 @@ class PostTableViewCell: UITableViewCell {
     
   var post: Post? {
     didSet {
+  
+      postDisposable?.dispose()
+      likeDisposable?.dispose()
       
       if let oldValue = oldValue where oldValue != post {
         oldValue.image.value = nil
-        postDisposable?.dispose()
-        likeDisposable?.dispose()
       }
       
       if let post = post {
